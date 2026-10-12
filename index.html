@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🎓</span>
+      <div>
+        <h1>Attendance Tracker</h1>
+        <p class="sub">Teacher Dashboard</p>
+      </div>
+    </div>
+    <div class="date-picker">
+      <label for="attendance-date">Date</label>
+      <input type="date" id="attendance-date" />
+    </div>
+  </header>
+
+  <main>
+    <!-- Summary stat cards -->
+    <section class="stats" id="stats">
+      <div class="stat-card">
+        <span class="stat-value" id="stat-total">0</span>
+        <span class="stat-label">Students</span>
+      </div>
+      <div class="stat-card present">
+        <span class="stat-value" id="stat-present">0</span>
+        <span class="stat-label">Present</span>
+      </div>
+      <div class="stat-card absent">
+        <span class="stat-value" id="stat-absent">0</span>
+        <span class="stat-label">Absent</span>
+      </div>
+      <div class="stat-card rate">
+        <span class="stat-value" id="stat-rate">0%</span>
+        <span class="stat-label">Attendance Rate</span>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search by name or roll no…" />
+      <div class="bulk-actions">
+        <button class="btn ghost" id="mark-all-present">Mark all present</button>
+        <button class="btn ghost" id="mark-all-absent">Mark all absent</button>
+      </div>
+    </div>
+
+    <!-- Student table -->
+    <section class="table-wrap">
+      <table id="student-table">
+        <thead>
+          <tr>
+            <th>Roll</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Email</th>
+            <th>Overall %</th>
+            <th class="col-status">Today</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="student-body"></tbody>
+      </table>
+      <p class="empty" id="empty-msg" hidden>No students match your search.</p>
+    </section>
+  </main>
+
+  <!-- Student detail drawer -->
+  <div class="drawer-overlay" id="drawer-overlay" hidden></div>
+  <aside class="drawer" id="drawer" hidden aria-label="Student details">
+    <button class="drawer-close" id="drawer-close" aria-label="Close">&times;</button>
+    <div id="drawer-content"></div>
+  </aside>
+
+  <footer class="footer">
+    Data is saved in your browser only — no server, no database.
+    <button class="btn link" id="reset-data">Reset sample data</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
